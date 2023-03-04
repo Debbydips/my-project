@@ -1,13 +1,19 @@
- <div>
-  <div>
+ <div class="container">
+  <div class="ui card">
     <h1>Debbydips.ng</h1>
-    <ul class="list">
-      <li>Thandiwe</li>
-      <li>Rachulo</li>
+    <ul class="list"> 
+      <li *ngFor=" let member of members">{{ member}}</li>
     </ul>
+  
+
      <div class="add-members-container">
-      <input type="text" placeholder="name" />
-      <button>Add</button>
+      <input  #addMemberInput
+      type="text" 
+      placeholder="Name"
+       (input)="onInput(addMemberInput.value )" 
+      
+       />
+      <button  (click)="addMember()">Add</button>
      </div>
 
      <div class="input-container">
@@ -16,3 +22,4 @@
      </div>
   </div> 
 </div>
+ 

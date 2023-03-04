@@ -6,5 +6,18 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'my-project';
+  newMemberName ='';
+  members: string[] =[]; 
+
+  onInput(member: string) {
+    this.newMemberName= member;
+    console.log ();
+    
+  }
+
+  addMember() {
+    this.members.push(this.newMemberName);
+   
+  }
+  
 }
