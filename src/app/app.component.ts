@@ -7,7 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   newMemberName ='';
-  members: string[] =[]; 
+  members: string[] =[];
+  errorMessage ='';
 
   onInput(member: string) {
     this.newMemberName= member;
