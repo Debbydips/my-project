@@ -10,16 +10,22 @@
       type="text" 
       placeholder="Name"
        (input)="onInput(addMemberInput.value )" 
-      [value]="newMemberName"
+       [value]="newMemberName"
        />
       <button  (click)="addMember()">Add</button>
      </div>
 
      <div class="input-container">
-      <input type="text" placeholder="# of workers" />
-      <button>Generate</button>
+      <input 
+      #numberOfWorkersInput
+      type="text" 
+      placeholder="# of workers"
+      (input)="onNumberOfWorkersInput (numberOfWorkersInput.value)" 
+      [value]="newMemberName"
+      />
+      <button (click)="generateWorkers()">Generate</button>
      </div>
-     <p></p>
+     <p *ngIf="errorMessage" class="error-msg">{{ errorMessage }}</p>
   </div> 
 </div>
  
