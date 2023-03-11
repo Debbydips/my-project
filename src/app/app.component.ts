@@ -7,13 +7,13 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   newMemberName ='';
-  members: string[] =[];
+  members: string[] = [];
   errorMessage ='';
-  numberOfWorkers: number | '' = ''
+  numberOfWorkers: number | '' = '';
+  workers: string[] []= [[]]
   
-  
-  onInput(member: string) {
-    this.newMemberName= member;
+  onInput(value: string) {
+    this.newMemberName= value;
   }
 
   onNumberOfWorkersInput(value: string){
@@ -22,29 +22,43 @@ export class AppComponent {
 
   addMember() {
 
-    if( !this.newMemberName){
+    if( !this.newMemberName.length){
       this.errorMessage = "Name can't be empty";
       return;
 
     }
-
+    this.errorMessage ='';
     this.members.push(this.newMemberName);
     this.newMemberName = '';
     
-  
   }
   
   generateWorkers() {
-
-    if( !this.numberOfWorkers || this.numberOfWorkers <=0){
+   this.workers = [];
+    if( !this.numberOfWorkers || this.numberOfWorkers <= 0){
+      this.errorMessage = 'Invalid number of workers '
       return
     }
 
-    const allMembers =[...this.members]
+    if(this.members.length < this.numberOfWorkers){
+      this.errorMessage = "Not enough members"
+    }
 
+    this.errorMessage = '';
+    const allMembers =[...this.members];
+
+while (allMembers.length )
     for( let i = 0; i < this.numberOfWorkers; i++){
      const randomIndex = Math.floor(Math.random () * allMembers.length);
+     const member = allMembers.splice (randomIndex, 1)[0];
+
+// if( !member) break; 
+
+     if(this.workers[i]){
+      this.workers[i].push(member)
+     } else {
+      this.workers[i] = [member]
+     }
     }
-     console.log(randomIndex);
   }
 }

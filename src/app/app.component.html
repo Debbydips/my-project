@@ -1,6 +1,7 @@
  <div class="container">
   <div class="ui card">
     <h1>Debbydips.ng</h1>
+    
     <ul class="list"> 
       <li *ngFor=" let member of members">{{ member}}</li>
     </ul>
@@ -17,15 +18,17 @@
 
      <div class="input-container">
       <input 
-      #numberOfWorkersInput
       type="text" 
       placeholder="# of workers"
-      (input)="onNumberOfWorkersInput (numberOfWorkersInput.value)" 
-      [value]="newMemberName"
       />
-      <button (click)="generateWorkers()">Generate</button>
+      <button 
+      (click)="generateWorkers()">Generate</button>
      </div>
      <p *ngIf="errorMessage" class="error-msg">{{ errorMessage }}</p>
-  </div> 
+  </div>
+  
+  <div *ngIf="workers.length" class="workers-container">
+ 
+  </div>
 </div>
  
