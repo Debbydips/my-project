@@ -28,7 +28,12 @@
   </div>
   
   <div *ngIf="workers.length" class="workers-container">
- 
+    <div *ngFor="let worker of workers; let i = index" class="worker" >
+   <h3>Worker {{ i + 1 }}</h3>
+   <ul>
+    <li *ngFor="let member of worker">{{ member }}</li>
+   </ul>
+    </div>
   </div>
 </div>
  

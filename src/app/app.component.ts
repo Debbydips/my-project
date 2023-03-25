@@ -49,8 +49,8 @@ export class AppComponent {
 
 while (allMembers.length )
     for( let i = 0; i < this.numberOfWorkers; i++){
-     const randomIndex = Math.floor(Math.random () * allMembers.length);
-     const member = allMembers.splice (randomIndex, 1)[0];
+     const randomIndex = Math.floor(Math.random() * allMembers.length);
+     const member = allMembers.splice(randomIndex, 1)[0];
 
 // if( !member) break; 
 
